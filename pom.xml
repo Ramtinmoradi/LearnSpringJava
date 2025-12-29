@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ramtinmoradiii</groupId>
-    <artifactId>OnlineShopJava</artifactId>
+    <artifactId>LearnSpringJava</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>OnlineShopJava</name>
-    <description>OnlineShopJava</description>
+    <name>LearnSpringJava</name>
+    <description>LearnSpringJava</description>
     <url/>
     <licenses>
         <license/>

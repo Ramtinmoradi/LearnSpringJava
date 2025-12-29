@@ -1,8 +1,8 @@
-package com.ramtinmoradiii.onlineshopjava.repositories;
+package com.ramtinmoradiii.learnSpringJava.repositories;
 
-import com.ramtinmoradiii.onlineshopjava.dto.MockData;
-import com.ramtinmoradiii.onlineshopjava.entities.Product;
-import com.ramtinmoradiii.onlineshopjava.exceptions.ResourceNotFoundException;
+import com.ramtinmoradiii.learnSpringJava.dto.MockData;
+import com.ramtinmoradiii.learnSpringJava.entities.Product;
+import com.ramtinmoradiii.learnSpringJava.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

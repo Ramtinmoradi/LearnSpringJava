@@ -1,7 +1,7 @@
-package com.ramtinmoradiii.onlineshopjava.dto;
+package com.ramtinmoradiii.learnSpringJava.dto;
 
-import com.ramtinmoradiii.onlineshopjava.entities.Color;
-import com.ramtinmoradiii.onlineshopjava.entities.Product;
+import com.ramtinmoradiii.learnSpringJava.entities.Color;
+import com.ramtinmoradiii.learnSpringJava.entities.Product;
 import lombok.Getter;
 
 import java.util.ArrayList;

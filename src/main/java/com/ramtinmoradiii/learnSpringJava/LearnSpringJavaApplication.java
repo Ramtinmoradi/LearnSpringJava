@@ -1,11 +1,11 @@
-package com.ramtinmoradiii.onlineshopjava;
+package com.ramtinmoradiii.learnSpringJava;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OnlineShopJavaApplication {
+public class LearnSpringJavaApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OnlineShopJavaApplication.class, args);
+        SpringApplication.run(LearnSpringJavaApplication.class, args);
     }
 }

@@ -1,7 +1,7 @@
-package com.ramtinmoradiii.onlineshopjava.services;
+package com.ramtinmoradiii.learnSpringJava.services;
 
-import com.ramtinmoradiii.onlineshopjava.entities.Product;
-import com.ramtinmoradiii.onlineshopjava.repositories.ProductRepository;
+import com.ramtinmoradiii.learnSpringJava.entities.Product;
+import com.ramtinmoradiii.learnSpringJava.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

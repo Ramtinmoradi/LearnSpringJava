@@ -1,6 +1,6 @@
-package com.ramtinmoradiii.onlineshopjava.common;
+package com.ramtinmoradiii.learnSpringJava.common;
 
-import com.ramtinmoradiii.onlineshopjava.exceptions.ResourceNotFoundException;
+import com.ramtinmoradiii.learnSpringJava.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

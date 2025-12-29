@@ -1,4 +1,4 @@
-package com.ramtinmoradiii.onlineshopjava.controllers;
+package com.ramtinmoradiii.learnSpringJava.controllers;
 
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;

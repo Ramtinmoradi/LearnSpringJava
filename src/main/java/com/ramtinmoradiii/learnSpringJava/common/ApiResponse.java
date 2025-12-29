@@ -1,7 +1,6 @@
-package com.ramtinmoradiii.onlineshopjava.common;
+package com.ramtinmoradiii.learnSpringJava.common;
 
 import lombok.*;
-import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter

@@ -1,8 +1,8 @@
-package com.ramtinmoradiii.onlineshopjava.controllers;
+package com.ramtinmoradiii.learnSpringJava.controllers;
 
-import com.ramtinmoradiii.onlineshopjava.common.ApiResponse;
-import com.ramtinmoradiii.onlineshopjava.entities.Product;
-import com.ramtinmoradiii.onlineshopjava.services.ProductService;
+import com.ramtinmoradiii.learnSpringJava.common.ApiResponse;
+import com.ramtinmoradiii.learnSpringJava.entities.Product;
+import com.ramtinmoradiii.learnSpringJava.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
