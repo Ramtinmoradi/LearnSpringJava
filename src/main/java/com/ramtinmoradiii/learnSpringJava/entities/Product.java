@@ -17,8 +17,14 @@ public class Product {
     private Long id;
 
     private Long price;
+
+    @Column(nullable = false)
     private String sku;
+
+    @Column(nullable = false)
     private String model;
+
+    @Column(nullable = false)
     private String brand;
 
     @ManyToMany

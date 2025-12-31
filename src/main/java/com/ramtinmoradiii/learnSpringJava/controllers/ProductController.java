@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/product")
@@ -32,5 +33,16 @@ public class ProductController {
     @PostMapping()
     public ApiResponse<Product> add(@RequestBody Product product) throws Exception {
         return ApiResponse.success(service.add(product));
+    }
+
+    @PutMapping()
+    public ApiResponse<Product> update(@RequestBody Product product) throws Exception {
+        return ApiResponse.success(service.update(product));
+    }
+
+    @DeleteMapping("/{id}")
+    public ApiResponse<Void> deleteById(@PathVariable Long id) {
+        service.delete(id);
+        return ApiResponse.success();
     }
 }
