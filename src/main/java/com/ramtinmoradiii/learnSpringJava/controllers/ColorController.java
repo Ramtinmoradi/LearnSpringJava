@@ -1,7 +1,7 @@
 package com.ramtinmoradiii.learnSpringJava.controllers;
 
 import com.ramtinmoradiii.learnSpringJava.common.ApiResponse;
-import com.ramtinmoradiii.learnSpringJava.entities.Color;
+import com.ramtinmoradiii.learnSpringJava.dto.ColorDTO;
 import com.ramtinmoradiii.learnSpringJava.services.ColorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,22 +20,22 @@ public class ColorController {
     }
 
     @GetMapping("")
-    public ApiResponse<List<Color>> getAll() {
+    public ApiResponse<List<ColorDTO>> getAll() {
         return ApiResponse.success(service.getAll());
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<Color> getById(@PathVariable Long id) {
+    public ApiResponse<ColorDTO> getById(@PathVariable Long id) {
         return ApiResponse.success(service.getById(id));
     }
 
     @PostMapping("")
-    public ApiResponse<Color> create(@RequestBody Color color) throws Exception {
-        return ApiResponse.success(service.create(color));
+    public ApiResponse<ColorDTO> create(@RequestBody ColorDTO color) throws Exception {
+        return ApiResponse.success(service.add(color));
     }
 
     @PutMapping("")
-    public ApiResponse<Color> update(@RequestBody Color color) throws Exception {
+    public ApiResponse<ColorDTO> update(@RequestBody ColorDTO color) throws Exception {
         return ApiResponse.success(service.update(color));
     }
 

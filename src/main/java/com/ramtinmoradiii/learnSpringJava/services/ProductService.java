@@ -1,55 +1,73 @@
 package com.ramtinmoradiii.learnSpringJava.services;
 
+import com.ramtinmoradiii.learnSpringJava.dto.ProductDTO;
 import com.ramtinmoradiii.learnSpringJava.entities.Product;
 import com.ramtinmoradiii.learnSpringJava.exceptions.ResourceNotFoundException;
 import com.ramtinmoradiii.learnSpringJava.repositories.ProductRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
     private final ProductRepository repository;
+    private final ModelMapper mapper;
 
     @Autowired
-    public ProductService(ProductRepository repository) {
+    public ProductService(ProductRepository repository, ModelMapper mapper) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
-    public Product add(Product product) throws Exception {
-        modelValidation(product);
+    public ProductDTO add(ProductDTO dto) throws Exception {
+        modelValidation(dto);
+        Product product = mapper.map(dto, Product.class);
         product.setId(null);
-        return repository.save(product);
+        return mapper.map(repository.save(product), ProductDTO.class);
     }
 
-    public Product update(Product product) throws Exception {
-        modelValidation(product);
-        if (product.getId() == null || product.getId() <= 0) throw new Exception("لطفا آیدی محصول را وارد نمایید.");
-        return repository.save(product);
+    public ProductDTO update(ProductDTO dto) throws Exception {
+        modelValidation(dto);
+        if (dto.getId() == null || dto.getId() <= 0)
+            throw new Exception("آیدی محصول نامعتبر است.");
+
+        return mapper.map(repository.save(mapper.map(dto, Product.class)), ProductDTO.class);
     }
 
-    public List<Product> getAll() {
-        return repository.findAll();
+    public List<ProductDTO> getAll() {
+        return repository.findAll().stream()
+                .map(entity -> mapper.map(entity, ProductDTO.class))
+                .collect(Collectors.toList());
     }
 
-    public Product getById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("محصول مورد نظر یافت نشد."));
+    public ProductDTO getById(Long id) {
+        return repository.findById(id)
+                .map(entity -> mapper.map(entity, ProductDTO.class))
+                .orElseThrow(() -> new ResourceNotFoundException("محصول مورد نظر یافت نشد."));
     }
 
-    public Product getBySku(String sku) {
-        return repository.findBySkuEqualsIgnoreCase(sku).orElseThrow(() -> new ResourceNotFoundException("محصول مورد نظر یافت نشد."));
+    public ProductDTO getBySku(String sku) {
+        return repository.findBySkuEqualsIgnoreCase(sku)
+                .map(entity -> mapper.map(entity, ProductDTO.class))
+                .orElseThrow(() -> new ResourceNotFoundException("SKU یافت نشد."));
     }
 
-    public List<Product> getByBrand(String brand) {
-        return repository.findByBrand(brand);
+    public List<ProductDTO> getByBrand(String brand) {
+        return repository.findByBrand(brand).stream()
+                .map(entity -> mapper.map(entity, ProductDTO.class))
+                .collect(Collectors.toList());
     }
 
     public void delete(Long id) {
+        if (!repository.existsById(id))
+            throw new ResourceNotFoundException("محصول مورد نظر یافت نشد.");
         repository.deleteById(id);
     }
 
-    private static void modelValidation(Product product) throws Exception {
+    private static void modelValidation(ProductDTO product) throws Exception {
         if (product == null) throw new Exception("محصول یافت نشد.");
         if (product.getBrand() == null || product.getBrand().isEmpty())
             throw new Exception("لطفا برند محصول را وارد کنید.");

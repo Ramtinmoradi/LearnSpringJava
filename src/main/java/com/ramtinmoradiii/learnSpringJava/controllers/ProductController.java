@@ -1,7 +1,7 @@
 package com.ramtinmoradiii.learnSpringJava.controllers;
 
 import com.ramtinmoradiii.learnSpringJava.common.ApiResponse;
-import com.ramtinmoradiii.learnSpringJava.entities.Product;
+import com.ramtinmoradiii.learnSpringJava.dto.ProductDTO;
 import com.ramtinmoradiii.learnSpringJava.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,32 +20,32 @@ public class ProductController {
     }
 
     @GetMapping
-    public ApiResponse<List<Product>> getAll() {
+    public ApiResponse<List<ProductDTO>> getAll() {
         return ApiResponse.success(service.getAll());
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<Product> getById(@PathVariable Long id) {
+    public ApiResponse<ProductDTO> getById(@PathVariable Long id) {
         return ApiResponse.success(service.getById(id));
     }
 
     @GetMapping("/sku/{sku}")
-    public ApiResponse<Product> getBySku(@PathVariable String sku) {
+    public ApiResponse<ProductDTO> getBySku(@PathVariable String sku) {
         return ApiResponse.success(service.getBySku(sku));
     }
 
     @GetMapping("/brand/{brand}")
-    public ApiResponse<List<Product>> getByBrand(@PathVariable String brand) {
+    public ApiResponse<List<ProductDTO>> getByBrand(@PathVariable String brand) {
         return ApiResponse.success(service.getByBrand(brand));
     }
 
     @PostMapping()
-    public ApiResponse<Product> add(@RequestBody Product product) throws Exception {
+    public ApiResponse<ProductDTO> add(@RequestBody ProductDTO product) throws Exception {
         return ApiResponse.success(service.add(product));
     }
 
     @PutMapping()
-    public ApiResponse<Product> update(@RequestBody Product product) throws Exception {
+    public ApiResponse<ProductDTO> update(@RequestBody ProductDTO product) throws Exception {
         return ApiResponse.success(service.update(product));
     }
 
