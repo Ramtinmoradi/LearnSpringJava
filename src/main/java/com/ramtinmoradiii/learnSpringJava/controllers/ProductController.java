@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/product")
@@ -28,6 +27,16 @@ public class ProductController {
     @GetMapping("/{id}")
     public ApiResponse<Product> getById(@PathVariable Long id) {
         return ApiResponse.success(service.getById(id));
+    }
+
+    @GetMapping("/sku/{sku}")
+    public ApiResponse<Product> getBySku(@PathVariable String sku) {
+        return ApiResponse.success(service.getBySku(sku));
+    }
+
+    @GetMapping("/brand/{brand}")
+    public ApiResponse<List<Product>> getByBrand(@PathVariable String brand) {
+        return ApiResponse.success(service.getByBrand(brand));
     }
 
     @PostMapping()
