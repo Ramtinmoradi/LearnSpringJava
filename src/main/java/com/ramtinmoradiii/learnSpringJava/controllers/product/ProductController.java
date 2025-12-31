@@ -1,8 +1,8 @@
-package com.ramtinmoradiii.learnSpringJava.controllers;
+package com.ramtinmoradiii.learnSpringJava.controllers.product;
 
 import com.ramtinmoradiii.learnSpringJava.common.ApiResponse;
-import com.ramtinmoradiii.learnSpringJava.dto.ProductDTO;
-import com.ramtinmoradiii.learnSpringJava.services.ProductService;
+import com.ramtinmoradiii.learnSpringJava.dto.product.ProductDTO;
+import com.ramtinmoradiii.learnSpringJava.services.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

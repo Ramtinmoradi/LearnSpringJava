@@ -1,4 +1,4 @@
-package com.ramtinmoradiii.learnSpringJava.dto;
+package com.ramtinmoradiii.learnSpringJava.dto.product;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;

@@ -1,9 +1,9 @@
-package com.ramtinmoradiii.learnSpringJava.services;
+package com.ramtinmoradiii.learnSpringJava.services.product;
 
-import com.ramtinmoradiii.learnSpringJava.dto.ColorDTO;
-import com.ramtinmoradiii.learnSpringJava.entities.Color;
-import com.ramtinmoradiii.learnSpringJava.exceptions.ResourceNotFoundException;
-import com.ramtinmoradiii.learnSpringJava.repositories.ColorRepository;
+import com.ramtinmoradiii.learnSpringJava.dto.product.ColorDTO;
+import com.ramtinmoradiii.learnSpringJava.entities.product.Color;
+import com.ramtinmoradiii.learnSpringJava.exceptions.NotFoundException;
+import com.ramtinmoradiii.learnSpringJava.repositories.product.ColorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,12 +44,12 @@ public class ColorService {
     public ColorDTO getById(Long id) {
         return repository.findById(id)
                 .map(entity -> mapper.map(entity, ColorDTO.class))
-                .orElseThrow(() -> new ResourceNotFoundException("رنگ مورد نظر یافت نشد."));
+                .orElseThrow(() -> new NotFoundException("رنگ مورد نظر یافت نشد."));
     }
 
     public void deleteById(Long id) {
         if (!repository.existsById(id))
-            throw new ResourceNotFoundException("رنگ مورد نظر یافت نشد.");
+            throw new NotFoundException("رنگ مورد نظر یافت نشد.");
         repository.deleteById(id);
     }
 

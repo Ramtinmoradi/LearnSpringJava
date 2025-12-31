@@ -1,4 +1,4 @@
-package com.ramtinmoradiii.learnSpringJava.entities;
+package com.ramtinmoradiii.learnSpringJava.entities.product;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

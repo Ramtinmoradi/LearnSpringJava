@@ -1,9 +1,9 @@
-package com.ramtinmoradiii.learnSpringJava.services;
+package com.ramtinmoradiii.learnSpringJava.services.product;
 
-import com.ramtinmoradiii.learnSpringJava.dto.ProductDTO;
-import com.ramtinmoradiii.learnSpringJava.entities.Product;
-import com.ramtinmoradiii.learnSpringJava.exceptions.ResourceNotFoundException;
-import com.ramtinmoradiii.learnSpringJava.repositories.ProductRepository;
+import com.ramtinmoradiii.learnSpringJava.dto.product.ProductDTO;
+import com.ramtinmoradiii.learnSpringJava.entities.product.Product;
+import com.ramtinmoradiii.learnSpringJava.exceptions.NotFoundException;
+import com.ramtinmoradiii.learnSpringJava.repositories.product.ProductRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,13 +46,13 @@ public class ProductService {
     public ProductDTO getById(Long id) {
         return repository.findById(id)
                 .map(entity -> mapper.map(entity, ProductDTO.class))
-                .orElseThrow(() -> new ResourceNotFoundException("محصول مورد نظر یافت نشد."));
+                .orElseThrow(() -> new NotFoundException("محصول مورد نظر یافت نشد."));
     }
 
     public ProductDTO getBySku(String sku) {
         return repository.findBySkuEqualsIgnoreCase(sku)
                 .map(entity -> mapper.map(entity, ProductDTO.class))
-                .orElseThrow(() -> new ResourceNotFoundException("SKU یافت نشد."));
+                .orElseThrow(() -> new NotFoundException("SKU یافت نشد."));
     }
 
     public List<ProductDTO> getByBrand(String brand) {
@@ -63,7 +63,7 @@ public class ProductService {
 
     public void delete(Long id) {
         if (!repository.existsById(id))
-            throw new ResourceNotFoundException("محصول مورد نظر یافت نشد.");
+            throw new NotFoundException("محصول مورد نظر یافت نشد.");
         repository.deleteById(id);
     }
 

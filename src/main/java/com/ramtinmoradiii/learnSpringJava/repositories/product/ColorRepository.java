@@ -1,6 +1,6 @@
-package com.ramtinmoradiii.learnSpringJava.repositories;
+package com.ramtinmoradiii.learnSpringJava.repositories.product;
 
-import com.ramtinmoradiii.learnSpringJava.entities.Color;
+import com.ramtinmoradiii.learnSpringJava.entities.product.Color;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

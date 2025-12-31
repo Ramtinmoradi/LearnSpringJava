@@ -1,6 +1,6 @@
-package com.ramtinmoradiii.learnSpringJava.repositories;
+package com.ramtinmoradiii.learnSpringJava.repositories.product;
 
-import com.ramtinmoradiii.learnSpringJava.entities.Product;
+import com.ramtinmoradiii.learnSpringJava.entities.product.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
