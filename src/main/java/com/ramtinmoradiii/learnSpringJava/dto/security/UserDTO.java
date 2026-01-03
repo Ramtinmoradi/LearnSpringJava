@@ -15,6 +15,7 @@ public class UserDTO {
     private String lastName;
     private String firstName;
     private String email;
+    private String token;
     private String mobile;
     private Boolean enable = true;
     private LocalDateTime registerDate;

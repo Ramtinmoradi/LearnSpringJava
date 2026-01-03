@@ -1,5 +1,6 @@
 package com.ramtinmoradiii.learnSpringJava.common;
 
+import com.ramtinmoradiii.learnSpringJava.exceptions.AccessDeniedException;
 import com.ramtinmoradiii.learnSpringJava.exceptions.NotFoundException;
 import com.ramtinmoradiii.learnSpringJava.exceptions.ValidationException;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ValidationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiResponse<Void> handleValidationError(ValidationException ex) {
+        return ApiResponse.error(ex.getMessage());
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ApiResponse<Void> handleAccessDeniedError(AccessDeniedException ex) {
         return ApiResponse.error(ex.getMessage());
     }
 }
